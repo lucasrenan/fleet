@@ -1,0 +1,12 @@
+version: '3'
+
+volumes:
+  bundle_ruby25_slim:
+    driver: local
+
+services:
+  cli:
+    build: .
+    volumes:
+      - .:/app
+      - bundle_ruby25_slim:/app/.bundle:rw
