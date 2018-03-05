@@ -9,15 +9,15 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: fleet [options]"
 
-  opts.on('-s', '--scooters 1,2,3', Array, 'Scooters separated by comma (between 1 and 100 elements and each element between 0 and 1000') do |scooters|
+  opts.on('-s', '--scooters 1,2,3', Array, 'Scooters separated by comma (between 1 and 100 elements and each element between 0 and 1000)') do |scooters|
     options[:scooters] = scooters.map(&:to_i)
   end
 
-  opts.on('-m', '--manager 9', Integer, 'Manager capacity  (between 1 and 999') do |manager_capacity|
+  opts.on('-m', '--manager 9', Integer, 'Manager capacity  (between 1 and 999)') do |manager_capacity|
     options[:manager_capacity] = manager_capacity
   end
 
-  opts.on('-e', '--engineers 5', Integer, 'Engineers capacity  (between 1 and 1000') do |engineer_capacity|
+  opts.on('-e', '--engineers 5', Integer, 'Engineers capacity  (between 1 and 1000)') do |engineer_capacity|
     options[:engineer_capacity] = engineer_capacity
   end
 end.parse!
