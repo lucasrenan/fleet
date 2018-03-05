@@ -9,6 +9,8 @@ module Fleet
     end
 
     def fleet_engineers
+      Fleet::Validator.new(self).validate!
+
       total_engineers = 0
       max_engineers_saved = 0
 
