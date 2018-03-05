@@ -13,14 +13,16 @@ OptionParser.new do |opts|
     options[:scooters] = scooters.map(&:to_i)
   end
 
-  opts.on('-m', '--manager 9', Integer, 'Manager capacity  (between 1 and 999') do |manager|
-    options[:manager] = manager
+  opts.on('-m', '--manager 9', Integer, 'Manager capacity  (between 1 and 999') do |manager_capacity|
+    options[:manager_capacity] = manager_capacity
   end
 
-  opts.on('-e', '--engineers 5', Integer, 'Engineers capacity  (between 1 and 1000') do |engineers|
-    options[:engineers] = engineers
+  opts.on('-e', '--engineers 5', Integer, 'Engineers capacity  (between 1 and 1000') do |engineer_capacity|
+    options[:engineer_capacity] = engineer_capacity
   end
 end.parse!
 
-calculator =  Fleet::Calculator.new(options[:scooters], options[:manager], options[:engineers])
+calculator =  Fleet::Calculator.new(options[:scooters],
+                                    options[:manager_capacity],
+                                    options[:engineer_capacity])
 puts calculator.fleet_engineers
